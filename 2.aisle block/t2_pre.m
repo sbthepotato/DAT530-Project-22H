@@ -12,4 +12,10 @@ else
     % Case-2: t2 is preferred,
     % thus, fire t2, if it is enabled
     fire = 1;
+    %global_info.CASE = 3;
+    global_info.countT1 = global_info.countT1 + 1;
+    if global_info.countT1 > 12
+       global_info.countT1 = 0;
+       global_info.CASE = 3;  
+    end
 end
