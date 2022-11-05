@@ -8,6 +8,8 @@ tokID1 = [];
 % when its been enabled. The aisle will get disabled while the side
 % transitions are firing to simulate people blocking the aisle while they
 % stow their baggage and move into their seat.
+
+%
 if strcmp(trans.name, 'tA01')
     fire = eq(global_info.A01, 1);
 elseif strcmp(trans.name, 'tA02')
