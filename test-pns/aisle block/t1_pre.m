@@ -2,7 +2,6 @@ function [fire, transition] = t1_pre (transition)
 
 global global_info
 
-count = 0;
  
 if eq(global_info.CASE, 2), 
     % Case = 2: t2 is preferred
@@ -16,8 +15,9 @@ else
     % Case-1: t1 is preffered 
     % thus, fire t1, whenever it is enabled 
     fire = 1;
-    count = count+1;
-    if count > 2
+    global_info.countT1 = global_info.countT1 + 1;
+    if global_info.countT1 > 12
+       global_info.countT1 = 0;
        global_info.CASE = 2;  
     end
 end
