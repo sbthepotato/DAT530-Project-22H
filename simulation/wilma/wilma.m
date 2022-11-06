@@ -1,14 +1,27 @@
 clear all; clc;
 global global_info;
 
-global_info.STOP_AT = 60;
+global_info.STOP_AT = 300;
 
-global_info.cr = {'A','B','C','D','E','F','G','H','I','J','K','L' ...
+% full list of coloured tokens
+colourRotation = {'A','B','C','D','E','F','G','H','I','J','K','L' ...
+    'A','B','C','D','E','F','G','H','I','J','K','L' ...
+    'A','B','C','D','E','F','G','H','I','J','K','L' ...
+    'Z','Y','X','W','V','U','T','S','R','Q','P','O' ...
+    'Z','Y','X','W','V','U','T','S','R','Q','P','O' ...
     'Z','Y','X','W','V','U','T','S','R','Q','P','O'};
+
+% set the colour rotation to be random
+global_info.cr = colourRotation(randperm(numel(colourRotation)));
+
+% colour rotation index
 global_info.cr_index = 0;
 
-pns = pnstruct('main_pn_pdf');
+pns = pnstruct('wilma_pn_pdf');
 
+% block the init(s)
+global_info.init = 1;
+% the aisle blocking variables (1=open, 0=blocked)
 global_info.A01 = 1;
 global_info.A02 = 1;
 global_info.A03 = 1;
@@ -22,10 +35,15 @@ global_info.A10 = 1;
 global_info.A11 = 1;
 global_info.A12 = 1;
 
-% token count
-dyn.m0 = {'pStart', 24};
-% firing times
-dyn.ft = {'allothers', 1};
+% total token count (2 columns x 3 seats x 12 rows)
+dyn.m0 = {'pStart', 72};
+% firing times, Have been tweaked to attempt to closely match the pre-existing results
+% from the paper by Jason Steffen and Jon Hotchkiss
+dyn.ft = {'tL01',7,'tL02',7,'tL03',7,'tL04',7,'tL05',7,'tL06',7, ...
+    'tL07',7,'tL08',7,'tL09',7,'tL10',7,'tL11',7,'tL12',7, ...
+    'tR01',7,'tR02',7,'tR03',7,'tR04',7,'tR05',7,'tR06',7, ...
+    'tR07',7,'tR08',7,'tR09',7,'tR10',7,'tR11',7,'tR12',7, ...
+    'allothers', 0.5};
 % transition priority, prioritise side ones to make sure colours go down
 % their pathway
 dyn.ip = {'tL01',1,'tL02',1,'tL03',1,'tL04',1,'tL05',1,'tL06',1, ...
@@ -37,6 +55,7 @@ dyn.ip = {'tL01',1,'tL02',1,'tL03',1,'tL04',1,'tL05',1,'tL06',1, ...
 pni = initialdynamics(pns, dyn);
 
 sim = gpensim(pni);
+
 
 % the whole model
 plotp(sim, { ...
@@ -56,23 +75,29 @@ plotp(sim, { ...
 
 %{
 % only the aisle
-plotp(sim, { 'pA00', ...
-    'pA01','pA02','pA03', 'pA04','pA05','pA06', ...
+figure
+plotp(sim, {'pA00' ...
+    'pA01','pA02','pA03', 'pA04','pA05','pA06' ...
     'pA07','pA08','pA09','pA10','pA11','pA12'
 });
+%}
+
 
 % only the right side
+figure
 plotp(sim, {...
     'pR01','pR02','pR03', 'pR04','pR05','pR06', ...
     'pR07','pR08','pR09','pR10','pR11','pR12'
 });
 
+
 % only the left side
+figure
 plotp(sim, {...
     'pL01','pL02','pL03', 'pL04','pL05','pL06', ...
     'pL07','pL08','pL09','pL10','pL11','pL12'
 });
-%}
+
 
 prnss(sim);
 %prncolormap(sim);

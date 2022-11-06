@@ -52,8 +52,13 @@ elseif strcmp(trans.name, 'tL12')
     global_info.A12 = 1;
 elseif strcmp(trans.name, 'tR12')
     global_info.A12 = 1;
+% when the aisle transitions fire they should disable themselves to prevent
+% a single aisle place from having more than 2 tokens at once. a aisle
+% transition can then re-enable the previous aisle transition to avoid it
+% being blocked forever.
 elseif strcmp(trans.name, 'tA01')
     global_info.A01 = 0;
+    global_info.init = 1;
 elseif strcmp(trans.name, 'tA02')
     global_info.A02 = 0;
     global_info.A01 = 1;
@@ -87,6 +92,8 @@ elseif strcmp(trans.name, 'tA11')
 elseif strcmp(trans.name, 'tA12')
     global_info.A12 = 0;
     global_info.A11 = 1;
+elseif strcmp(trans.name, 'tInit')
+    global_info.init = 0;
 else
     % nothing
 end

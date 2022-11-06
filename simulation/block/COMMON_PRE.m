@@ -32,152 +32,82 @@ elseif strcmp(trans.name, 'tA1')
     fire = eq(global_info.A11, 1);
 elseif strcmp(trans.name, 'tA12')
     fire = eq(global_info.A12, 1);
-% all the left side transitions
+% all the left side transitions, They dont need to disable the aisle
+% because it disables it self to be re-enabled for the next token either by
+% the left-right transition or by the next aisle transition
 elseif strcmp(trans.name, 'tL01')
     tokID1 = tokenEXColor('pA01',1,'A');
     fire = tokID1;
-    if fire
-        global_info.A01 = 0;
-    end
 elseif strcmp(trans.name, 'tL02')
     tokID1 = tokenEXColor('pA02',1,'B');
     fire = tokID1;
-    if fire
-        global_info.A02 = 0;
-    end
 elseif strcmp(trans.name, 'tL03')
     tokID1 = tokenEXColor('pA03',1,'C');
     fire = tokID1;
-    if fire
-        global_info.A03 = 0;
-    end
 elseif strcmp(trans.name, 'tL04')
     tokID1 = tokenEXColor('pA04',1,'D');
     fire = tokID1;
-    if fire
-        global_info.A04 = 0;
-    end
 elseif strcmp(trans.name, 'tL05')
     tokID1 = tokenEXColor('pA05',1,'E');
     fire = tokID1;
-    if fire
-        global_info.A05 = 0;
-    end
 elseif strcmp(trans.name, 'tL06')
     tokID1 = tokenEXColor('pA06',1,'F');
     fire = tokID1;
-    if fire
-        global_info.A06 = 0;
-    end
 elseif strcmp(trans.name, 'tL07')
     tokID1 = tokenEXColor('pA07',1,'G');
     fire = tokID1;
-    if fire
-        global_info.A07 = 0;
-    end
 elseif strcmp(trans.name, 'tL08')
     tokID1 = tokenEXColor('pA08',1,'H');
     fire = tokID1;
-    if fire
-        global_info.A08 = 0;
-    end
 elseif strcmp(trans.name, 'tL09')
     tokID1 = tokenEXColor('pA09',1,'I');
     fire = tokID1;
-    if fire
-        global_info.A09 = 0;
-    end
 elseif strcmp(trans.name, 'tL10')
     tokID1 = tokenEXColor('pA10',1,'J');
     fire = tokID1;
-    if fire
-        global_info.A10 = 0;
-    end
 elseif strcmp(trans.name, 'tL11')
     tokID1 = tokenEXColor('pA11',1,'K');
     fire = tokID1;
-    if fire
-        global_info.A11 = 0;
-    end
 elseif strcmp(trans.name, 'tL12')
     tokID1 = tokenEXColor('pA12',1,'L');
     fire = tokID1;
-    if fire
-        global_info.A12 = 0;
-    end
 elseif strcmp(trans.name, 'tR01')
     tokID1 = tokenEXColor('pA01',1,'Z');
     fire = tokID1;
-    if fire
-        global_info.A01 = 0;
-    end
 elseif strcmp(trans.name, 'tR02')
     tokID1 = tokenEXColor('pA02',1,'Y');
     fire = tokID1;
-    if fire
-        global_info.A02 = 0;
-    end
 elseif strcmp(trans.name, 'tR03')
     tokID1 = tokenEXColor('pA03',1,'X');
     fire = tokID1;
-    if fire
-        global_info.A03 = 0;
-    end
 elseif strcmp(trans.name, 'tR04')
     tokID1 = tokenEXColor('pA04',1,'W');
     fire = tokID1;
-    if fire
-        global_info.A04 = 0;
-    end
 elseif strcmp(trans.name, 'tR05')
     tokID1 = tokenEXColor('pA05',1,'V');
     fire = tokID1;
-    if fire
-        global_info.A05 = 0;
-    end
 elseif strcmp(trans.name, 'tR06')
     tokID1 = tokenEXColor('pA06',1,'U');
     fire = tokID1;
-    if fire
-        global_info.A06 = 0;
-    end
 elseif strcmp(trans.name, 'tR07')
     tokID1 = tokenEXColor('pA07',1,'T');
     fire = tokID1;
-    if fire
-        global_info.A07 = 0;
-    end
 elseif strcmp(trans.name, 'tR08')
     tokID1 = tokenEXColor('pA08',1,'S');
     fire = tokID1;
-    if fire
-        global_info.A08 = 0;
-    end
 elseif strcmp(trans.name, 'tR09')
     tokID1 = tokenEXColor('pA09',1,'R');
     fire = tokID1;
-    if fire
-        global_info.A09 = 0;
-    end
 elseif strcmp(trans.name, 'tR10')
     tokID1 = tokenEXColor('pA10',1,'Q');
     fire = tokID1;
-    if fire
-        global_info.A10 = 0;
-    end
 elseif strcmp(trans.name, 'tR11')
     tokID1 = tokenEXColor('pA11',1,'P');
     fire = tokID1;
-    if fire
-        global_info.A11 = 0;
-    end
 elseif strcmp(trans.name, 'tR12')
     tokID1 = tokenEXColor('pA12',1,'O');
     fire = tokID1;
-    if fire
-        global_info.A12 = 0;
-    end
 else
+    % nothing
     fire = 1;
-    % nothing special
 end
