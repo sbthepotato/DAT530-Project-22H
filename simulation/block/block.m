@@ -91,14 +91,14 @@ plotp(sim, { ...
     'pL12','pA12','pR12'
 });
 
-%{
+
 % only the aisle
 figure
 plotp(sim, {'pA00' ...
     'pA01','pA02','pA03', 'pA04','pA05','pA06' ...
     'pA07','pA08','pA09','pA10','pA11','pA12'
 });
-%}
+
 
 % Group 1
 figure
