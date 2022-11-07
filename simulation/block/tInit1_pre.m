@@ -13,7 +13,7 @@ if global_info.currentGroup == 1 && global_info.init == 1
     fire = 1;
     global_info.boarded = global_info.boarded + 1;
     % when group has finished boarding reset and do next group
-    if global_info.boarded == 24
+    if global_info.boarded >= 24
        global_info.cr_index = 0;
        global_info.boarded = 0;
        global_info.currentGroup = 2;  

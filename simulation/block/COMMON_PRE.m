@@ -28,7 +28,7 @@ elseif strcmp(trans.name, 'tA09')
     fire = eq(global_info.A09, 1);
 elseif strcmp(trans.name, 'tA10')
     fire = eq(global_info.A10, 1);
-elseif strcmp(trans.name, 'tA1')
+elseif strcmp(trans.name, 'tA11')
     fire = eq(global_info.A11, 1);
 elseif strcmp(trans.name, 'tA12')
     fire = eq(global_info.A12, 1);
