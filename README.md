@@ -1,11 +1,7 @@
 # DAT520 Simulating Aircraft Boarding
 
-`project proposal/` contains the initial proposal of what the project would be
+`not for final delivery/` contains the project proposal, some test petri nets used to better understand GPenSIM and sketches used to design the model
 
 `report/` contains the project report
 
 `simulation/` contains the project simulation
-
-`test-pns/` contain some very small petri nets that were used to try to understand how to implement the large scale model.
-
-`Design Concept.pdf` are the drawings and sketches used to initially design the model.

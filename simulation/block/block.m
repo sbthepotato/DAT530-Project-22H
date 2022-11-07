@@ -3,7 +3,7 @@ global global_info;
 
 global_info.STOP_AT = 500;
 
-% full list of coloured tokens
+% full list of coloured tokens, seperated for each boarding group
 colourRotation2 = {'A','B','C','D' ...
     'A','B','C','D' ...
     'A','B','C','D' ...
@@ -28,6 +28,7 @@ global_info.cr1 = colourRotation1(randperm(numel(colourRotation1)));
 global_info.cr2 = colourRotation2(randperm(numel(colourRotation2)));
 global_info.cr3 = colourRotation3(randperm(numel(colourRotation3)));
 
+% colour rotation index
 global_info.cr_index = 0;
 % count the number of tokens sent through transition and mark the current
 % boarding group being processed

@@ -73,16 +73,16 @@ plotp(sim, { ...
     'pL12','pA12','pR12'
 });
 
-%{
+
 % only the aisle
 figure
 plotp(sim, {'pA00' ...
     'pA01','pA02','pA03', 'pA04','pA05','pA06' ...
     'pA07','pA08','pA09','pA10','pA11','pA12'
 });
-%}
 
 
+%{
 % only the right side
 figure
 plotp(sim, {...
@@ -97,7 +97,7 @@ plotp(sim, {...
     'pL01','pL02','pL03', 'pL04','pL05','pL06', ...
     'pL07','pL08','pL09','pL10','pL11','pL12'
 });
-
+%}
 
 prnss(sim);
 %prncolormap(sim);
